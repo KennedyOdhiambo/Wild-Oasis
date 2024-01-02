@@ -1,5 +1,5 @@
-import { useForm } from "react-hook-form";
 import PropTypes from "prop-types";
+import { useForm } from "react-hook-form";
 
 import Input from "../../ui/Input";
 import Form from "../../ui/Form";
@@ -47,8 +47,12 @@ function CreateCabinForm({ cabinToEdit = {} }) {
       );
   }
 
+  function onError() {
+    // console.log(errors);
+  }
+
   return (
-    <Form onSubmit={handleSubmit(onSubmit)}>
+    <Form onSubmit={handleSubmit(onSubmit, onError)}>
       <FormRow label="Cabin name" error={errors?.name?.message}>
         <Input
           type="text"
